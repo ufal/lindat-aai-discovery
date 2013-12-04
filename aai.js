@@ -3,7 +3,8 @@ var aai = new function() {
 	//this.host = "https://ufal-point.mff.cuni.cz";
 	  this.host = "https://" + window.location.hostname; //better default (useful when testing on ufal-point-dev)
          // do not add protocol because an error will appear in the DJ dialog
-	this.responseUrl = this.host.substr(this.host.indexOf(":")+1) + "/xmlui/themes/UFAL/lib/html/disco-juice.html?";
+	// seems to no longer be an issue
+	this.responseUrl = this.host + "/xmlui/themes/UFAL/lib/html/disco-juice.html?";
 	this.ourEntityID = "https://" + window.location.hostname + "/shibboleth/eduid/sp";
         this.serviceName = "";
         this.metadataFeed = this.host + "/xmlui/discojuice/feeds";
