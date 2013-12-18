@@ -31,22 +31,22 @@
                     opts.host + '/Shibboleth.sso/DS?SAMLDS=1&target='+opts.target+'&entityID=');
                 djc.metadata = [opts.metadataFeed];
 
-                djc.inlinemetadata = [
-                    {
-                        'country': '_all_',
-                        'entityID': 'https://idp.clarin.eu',
-                        'geo': {'lat': 51.833298, 'lon': 5.866699},
-                        'title': 'Clarin.eu website account',
-                        'weight': 1000
-                    },
-                    {
-                        'country': 'CZ',
-                        'entityID': 'https://cas.cuni.cz/idp/shibboleth',
-                        'geo': {'lat': '50.0705102', 'lon': '14.4198844'},
-                        'title': 'Univerzita Karlova v Praze',
-                        'weight': -1000
-                    }
-                ];
+                djc.inlinemetadata = opts.inlinemetadata ? opts.inlinemetadata : [];
+                djc.inlinemetadata.push({
+                    'country': '_all_',
+                    'entityID': 'https://idp.clarin.eu',
+                    'geo': {'lat': 51.833298, 'lon': 5.866699},
+                    'title': 'Clarin.eu website account',
+                    'weight': 1000
+                });
+                djc.inlinemetadata.push({
+                    'country': 'CZ',
+                    'entityID': 'https://cas.cuni.cz/idp/shibboleth',
+                    'geo': {'lat': '50.0705102', 'lon': '14.4198844'},
+                    'title': 'Univerzita Karlova v Praze',
+                    'weight': -1000
+                });
+
                 if(opts.localauth){
                     djc.inlinemetadata.push(
                         {
