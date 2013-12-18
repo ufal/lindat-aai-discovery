@@ -19,8 +19,8 @@
                 throw 'You need to set the \'target\' parameter.';
             }
             // call disco juice setup
-            if (!!$('a.signon')) {
-                if(! window.DiscoJuice ){
+          if ($('a.signon').size() > 0) {
+            if(! window.DiscoJuice ){
                     throw 'Failed to find DiscoJuice. Did you include all that is necessary?';
                 }
                 var djc = DiscoJuice.Hosted.getConfig(
@@ -31,8 +31,8 @@
                     opts.host + '/Shibboleth.sso/DS?SAMLDS=1&target='+opts.target+'&entityID=');
                 djc.metadata = [opts.metadataFeed];
 
-                djc.inlinemetadata = opts.inlinemetadata ? opts.inlinemetadata : [];
-                djc.inlinemetadata.push({
+            djc.inlinemetadata = typeof opts.inlinemetadata === 'array' ? opts.inlinemetadata : [];
+            djc.inlinemetadata.push({
                     'country': '_all_',
                     'entityID': 'https://idp.clarin.eu',
                     'geo': {'lat': 51.833298, 'lon': 5.866699},
@@ -66,8 +66,8 @@
                             break;
                         //case 'saml':
                         default:
-                            window.location = opts.host + '/Shibboleth.sso/Login?SAMLDS=1&target=' + opts.target + '&entityID='+window.escape(e.entityID);
-                            break;
+                          window.location = opts.host + '/Shibboleth.sso/Login?SAMLDS=1&target=' + opts.target + '&entityID=' + window.encodeURIComponent(e.entityID);
+                          break;
                         }
                     };
                 }
