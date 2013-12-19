@@ -31,7 +31,7 @@
           opts.host + '/Shibboleth.sso/DS?SAMLDS=1&target='+opts.target+'&entityID=');
         djc.metadata = [opts.metadataFeed];
 
-        djc.inlinemetadata = typeof opts.inlinemetadata === 'array' ? opts.inlinemetadata : [];
+        djc.inlinemetadata = typeof opts.inlinemetadata === 'object' ? opts.inlinemetadata : [];
         djc.inlinemetadata.push({
           'country': '_all_',
           'entityID': 'https://idp.clarin.eu',
