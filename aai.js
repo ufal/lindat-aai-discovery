@@ -30,6 +30,7 @@
           [ ],
           opts.host + '/Shibboleth.sso/DS?SAMLDS=1&target='+opts.target+'&entityID=');
         djc.metadata = [opts.metadataFeed];
+        djc.subtitle = "Select your Identity Provider (e.g., Home Institution)";
 
         djc.inlinemetadata = typeof opts.inlinemetadata === 'object' ? opts.inlinemetadata : [];
         djc.inlinemetadata.push({
