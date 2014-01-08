@@ -2,13 +2,14 @@
 (function(window){
   function AAI() {
     var host = 'https://' + window.location.hostname;
+    var ourEntityID = host.match("lindat.mff.cuni.cz") ? "https://ufal-point.mff.cuni.cz" : host;
     this.defaults = {
       //host : 'https://ufal-point.mff.cuni.cz',
       host : host, //better default (useful when testing on ufal-point-dev)
       // do not add protocol because an error will appear in the DJ dialog
       // seems to no longer be an issue
       responseUrl: host + '/xmlui/themes/UFAL/lib/html/disco-juice.html?',
-      ourEntityID: 'https://' + window.location.hostname + '/shibboleth/eduid/sp',
+      ourEntityID: ourEntityID + '/shibboleth/eduid/sp',
       serviceName: '',
       metadataFeed: host + '/xmlui/discojuice/feeds'
     };
