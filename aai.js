@@ -7,8 +7,8 @@
       //host : 'https://ufal-point.mff.cuni.cz',
       host : host, //better default (useful when testing on ufal-point-dev)
       // do not add protocol because an error will appear in the DJ dialog
-      // seems to no longer be an issue
-      responseUrl: host + '/xmlui/themes/UFAL/lib/html/disco-juice.html?',
+      // if you see the error, your SP is not listed among djc trusted (edugain is enough to be trusted)
+      responseUrl: window.location.protocol + '//lindat.mff.cuni.cz/idpdiscovery/discojuiceDiscoveryResponse.html',
       ourEntityID: ourEntityID + '/shibboleth/eduid/sp',
       serviceName: '',
       metadataFeed: host + '/xmlui/discojuice/feeds',
