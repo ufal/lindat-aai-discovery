@@ -434,4 +434,18 @@ div#discojuice_overlay {
 
 
 
+@media (max-width: 979px){
+.discojuice {
+        width: auto !important;
+        max-width: 380px;
+        margin-left: 10px !important;
+}
 
+.discojuice_listContent {
+        max-height: 200px !important;
+}
+
+#discojuice_overlay {
+        position: fixed !important;
+}
+}	
