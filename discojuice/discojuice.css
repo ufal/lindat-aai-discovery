@@ -378,6 +378,7 @@ div.discojuice div.scroller a.disabled span.location {
 
 
 div.discojuice a#moreoptions, a.discojuice_what {
+	font-weight: bold;
 	padding-left: 12px;
 	background: url(./images/arrow.png) no-repeat 0px 3px;
 }
