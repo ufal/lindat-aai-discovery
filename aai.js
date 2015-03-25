@@ -34,7 +34,7 @@
           opts.ourEntityID,
           opts.responseUrl,
           [ ],
-          opts.host + '/Shibboleth.sso/DS?SAMLDS=1&target='+opts.target+'&entityID=');
+          opts.host + '/Shibboleth.sso/Login?SAMLDS=1&target='+opts.target+'&entityID=');
         djc.metadata = [opts.metadataFeed];
         djc.subtitle = "Login via Your home institution (e.g. university)";
 	djc.textHelp = opts.textHelp;
