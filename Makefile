@@ -1,2 +1,2 @@
 aai.min.js : aai.js
-	@uglifyjs aai.js -o aai.min.js --source-map aai.min.js.map -c -m
+	curl -X POST -s --data-urlencode 'input@aai.js' http://javascript-minifier.com/raw > aai.min.js
