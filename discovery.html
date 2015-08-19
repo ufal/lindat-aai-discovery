@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Select Your Login Provider</title>
+
+    <link rel="shortcut icon" href="http://discojuice.bridge.uninett.no/simplesaml/module.php/discojuice/favicon.png" />
+
+    <!-- JQuery hosted by Google -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="discojuice/discojuice-2.1.en.min.js"></script>
+    <script type="text/javascript" src="IdpDiscovery.js"></script>
+    <link rel="stylesheet" type="text/css" href="discojuice/discojuice.css" />
+
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+        div.discojuice {
+            text-align: left;
+            position: relative;
+            width: 600px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        $("document").ready(function() {
+		var title = "LINDAT/CLARIN";
+		var spentityid = "";//urlParams.entityID;
+		var responseUrl = window.location.protocol + '//lindat.mff.cuni.cz/idpdiscovery/discojuiceDiscoveryResponse.html';
+		var feeds = [];
+		var returnTo = "";
+		var djc = DiscoJuice.Hosted.getConfig(title,spentityid,responseUrl,feeds);
+		var host = "https://" + window.location.hostname;
+		var metadataFeed = host + "/repository/xmlui/discojuice/feeds";
+		djc.metadata = [metadataFeed];
+
+		djc.inlinemetadata = [
+			    {
+				"country":"_all_",
+				"entityID":"https://idp.clarin.eu",
+				"geo":{"lat":51.833298,"lon":5.866699},
+				"title":"Clarin.eu website account",
+				"weight":1000
+			    },
+			    {
+				'country':'CZ',
+				'entityID':'https://cas.cuni.cz/idp/shibboleth',
+				'geo':{'lat':'50.0705102','lon':'14.4198844'},
+				'title':'Univerzita Karlova v Praze',
+				'weight':-1000
+			    }
+		];
+
+		djc.always = true;
+		djc.callback = IdPDiscovery.setup(djc,  ['lindat.mff.cuni.cz', 'ufal-point-dev.ms.mff.cuni.cz', 'ufal-point.mff.cuni.cz']);
+
+		$("body").DiscoJuice(djc);
+        });
+
+
+    </script>
+
+</head>
+<body style="background: #ccc">
+</body>
+</html>
