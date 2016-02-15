@@ -13,7 +13,8 @@
       serviceName: '',
       metadataFeed: host + '/xmlui/discojuice/feeds',
       selector: 'a.signon', // selector for login button
-      autoInitialize: true // auto attach DiscoJuice to DOM
+      autoInitialize: true, // auto attach DiscoJuice to DOM
+      textHelpMore: "First check you are searching under the right country.\nIf your provider is not listed, please read <a href='https://lindat.mff.cuni.cz/how-do-i-sign-up' style='text-decoration: underline; font-weight: bold;'>these instructions</a> to obtain an account."
     };
     this.setup = function(options) {
       var opts = jQuery.extend({}, this.defaults, options),
