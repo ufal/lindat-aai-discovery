@@ -26,7 +26,7 @@
         throw 'You need to set the \'target\' parameter.';
       }
       // call disco juice setup
-      if (!opts.autoInitialize || $(opts.selector).size() > 0) {
+      if (!opts.autoInitialize || $(opts.selector).length > 0) {
         if(! window.DiscoJuice ){
           throw 'Failed to find DiscoJuice. Did you include all that is necessary?';
         }
