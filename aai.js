@@ -44,7 +44,7 @@
         djc.inlinemetadata = typeof opts.inlinemetadata === 'object' ? opts.inlinemetadata : [];
         djc.inlinemetadata.push({
           'country': '_all_',
-          'entityID': 'https://idp.clarin.eu',
+          'entityID': 'https://idm.clarin.eu',
           'geo': {'lat': 51.833298, 'lon': 5.866699},
           'title': 'Clarin.eu website account',
           'weight': 1000
