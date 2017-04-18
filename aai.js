@@ -13,7 +13,8 @@
       serviceName: '',
       metadataFeed: host + '/xmlui/discojuice/feeds',
       selector: 'a.signon', // selector for login button
-      autoInitialize: true // auto attach DiscoJuice to DOM
+      autoInitialize: true, // auto attach DiscoJuice to DOM
+      textHelpMore: "First check you are searching under the right country.\nIf your provider is not listed, please read <a href='https://lindat.mff.cuni.cz/how-do-i-sign-up' style='text-decoration: underline; font-weight: bold;'>these instructions</a> to obtain an account."
     };
     this.setup = function(options) {
       var opts = jQuery.extend({}, this.defaults, options),
@@ -25,7 +26,7 @@
         throw 'You need to set the \'target\' parameter.';
       }
       // call disco juice setup
-      if (!opts.autoInitialize || $(opts.selector).size() > 0) {
+      if (!opts.autoInitialize || $(opts.selector).length > 0) {
         if(! window.DiscoJuice ){
           throw 'Failed to find DiscoJuice. Did you include all that is necessary?';
         }
@@ -43,7 +44,7 @@
         djc.inlinemetadata = typeof opts.inlinemetadata === 'object' ? opts.inlinemetadata : [];
         djc.inlinemetadata.push({
           'country': '_all_',
-          'entityID': 'https://idp.clarin.eu',
+          'entityID': 'https://idm.clarin.eu',
           'geo': {'lat': 51.833298, 'lon': 5.866699},
           'title': 'Clarin.eu website account',
           'weight': 1000
